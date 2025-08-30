@@ -1,4 +1,4 @@
-# This starter workflow is for a CMake project running on multiple platforms. There is a different starter workflow if you just want a single platform.
+ # This starter workflow is for a CMake project running on multiple platforms. There is a different starter workflow if you just want a single platform.
 # See: https://github.com/actions/starter-workflows/blob/main/ci/cmake-single-platform.yml
 name: CI
 
@@ -89,8 +89,9 @@ jobs:
       - name: Build
         run: cd apexsky && cargo build --release --target ${{ matrix.target }}
 
-      #- name: Build Overlay
-      #  run: cd apexsky/apexsky_overlay && cargo build --release --target ${{ matrix.target }}
+      - name: Build Overlay
+        run: cd apexsky/apexsky_overlay && cargo build --release --target ${{ matrix.target }}
+
 
       # - name: Test
       #   working-directory: ${{ steps.strings.outputs.build-output-dir }}
